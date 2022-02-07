@@ -159,7 +159,7 @@ export function WorldDataLayout() {
         <Divider variant="middle" />
         <List>
           <Link href="/">
-            <ListItem button key="Mundial" role="listitem">
+            <ListItem button selected key="Mundial" role="listitem">
               <ListItemIcon>
                 <PublicRoundedIcon />
               </ListItemIcon>

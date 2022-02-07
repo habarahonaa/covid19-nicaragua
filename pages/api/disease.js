@@ -32,8 +32,38 @@ export const fetchHistoricalData = async () => {
   }
 };
 
-export const fetchNicaraguaData = async () => {
+export const fetchNicaraguaCaseData = async () => {
   try {
+    const {
+      data: { updated, cases, deaths, recovered, active },
+    } = await axios.get(`${API_URL}/countries/ni?strict=true`);
+    return { updated, cases, deaths, recovered, active };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchNicaraguaHistoricalData = async () => {
+  try {
+    const {
+      data: {
+        timeline: { cases, deaths },
+      },
+    } = await axios.get(`${API_URL}/historical/ni?lastdays=200`);
+    return { cases, deaths };
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchNicaraguaVaccinationData = async () => {
+  try {
+    const {
+      data: { timeline },
+    } = await axios.get(
+      `${API_URL}/vaccine/coverage/countries/ni?lastdays=30&fullData=false`
+    );
+    return timeline;
   } catch (error) {
     console.log(error);
   }

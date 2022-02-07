@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
+// Next routing
 import Link from "next/link";
+// Material
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,10 +22,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { fetchData } from "../../pages/api/disease";
+// API Functions
+import { fetchNicaraguaCaseData } from "../../pages/api/disease";
+// Components
 import { CardActive, CardDeaths, CardRecovered, CardTotal } from "../Cards";
-import { CaseChart } from "../Charts/WorldChart";
-import { DGCountries } from "../DGCountries/DGCountries";
+import { CaseChart } from "../Charts/NicaraguaChart";
 
 const drawerWidth = 300;
 
@@ -114,7 +114,7 @@ export function NicaraguaDashboardLayout() {
 
   useEffect(() => {
     const fetchWorldData = async () => {
-      const data = await fetchData();
+      const data = await fetchNicaraguaCaseData();
       setTotalCases(data.cases);
       setActiveCases(data.active);
       setTotalDeaths(data.deaths);
@@ -167,7 +167,7 @@ export function NicaraguaDashboardLayout() {
             </ListItem>
           </Link>
           <Link href="/casos-nicaragua">
-            <ListItem button key="Nicaragua">
+            <ListItem button selected key="Nicaragua">
               <ListItemIcon>
                 <FlagRoundedIcon />
               </ListItemIcon>
@@ -188,7 +188,9 @@ export function NicaraguaDashboardLayout() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Box sx={{ pt: 12, pb: 6 }}>
-          <Typography variant="h4">Hola, bienvenido de nuevo!</Typography>
+          <Typography variant="h4">
+            Estos son los datos para el dia de hoy:
+          </Typography>
         </Box>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
@@ -204,27 +206,7 @@ export function NicaraguaDashboardLayout() {
             <CardDeaths updated={lastUpdate} deaths={totalDeaths} />
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
-            <Card>
-              <CardHeader
-                title="Estadisticas mundiales"
-                subheader={`TODO: Insertar formula para calcular variacion entre dias`}
-              />
-              <Box sx={{ p: 2, px: 4 }}>
-                <CaseChart />
-              </Box>
-            </Card>
-          </Grid>
-
-          <Grid item xs={12} md={12} lg={12}>
-            <Card>
-              <CardHeader
-                title="Estadisticas por pais"
-                subheader={`Puede filtrar por pais alfabeticamente o por totales (asc. o desc.)`}
-              />
-              <Box sx={{ p: 2, px: 4 }}>
-                <DGCountries />
-              </Box>
-            </Card>
+            <CaseChart />
           </Grid>
         </Grid>
       </Box>
