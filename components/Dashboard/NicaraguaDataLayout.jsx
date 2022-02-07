@@ -95,7 +95,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export function WorldDataLayout() {
+export function NicaraguaDashboardLayout() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [totalCases, setTotalCases] = useState("Loading...");
@@ -158,20 +158,30 @@ export function WorldDataLayout() {
         </DrawerHeader>
         <Divider variant="middle" />
         <List>
-          {["Mundial", "Nicaragua/Casos", "Vacunacion"].map((text, index) => (
-            <ListItem button key={text}>
+          <Link href="/">
+            <ListItem button key="Mundial">
               <ListItemIcon>
-                {index === 0 ? (
-                  <PublicRoundedIcon />
-                ) : index === 1 ? (
-                  <FlagRoundedIcon />
-                ) : (
-                  <VaccinesRoundedIcon />
-                )}
+                <PublicRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary="Mundial" />
             </ListItem>
-          ))}
+          </Link>
+          <Link href="/casos-nicaragua">
+            <ListItem button key="Nicaragua">
+              <ListItemIcon>
+                <FlagRoundedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Casos Nicaragua" />
+            </ListItem>
+          </Link>
+          <Link href="/vacunacion-nicaragua">
+            <ListItem button key="Nicaragua">
+              <ListItemIcon>
+                <VaccinesRoundedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Vacunacion Nicaragua" />
+            </ListItem>
+          </Link>
         </List>
         <Divider variant="middle" />
       </Drawer>

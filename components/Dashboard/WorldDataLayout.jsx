@@ -139,7 +139,7 @@ export function WorldDataLayout() {
               ...(open && { display: "none" }),
             }}
           >
-            <GridViewRoundedIcon />
+            <GridViewRoundedIcon aria-label="Open Drawer" />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             COVID-19 Nicaragua
@@ -150,16 +150,16 @@ export function WorldDataLayout() {
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
+              <ChevronRightIcon aria-label="Close Drawer" />
             ) : (
-              <ChevronLeftIcon />
+              <ChevronLeftIcon aria-label="Close Drawer" />
             )}
           </IconButton>
         </DrawerHeader>
         <Divider variant="middle" />
         <List>
           <Link href="/">
-            <ListItem button key="Mundial">
+            <ListItem button key="Mundial" role="listitem">
               <ListItemIcon>
                 <PublicRoundedIcon />
               </ListItemIcon>
@@ -167,7 +167,7 @@ export function WorldDataLayout() {
             </ListItem>
           </Link>
           <Link href="/casos-nicaragua">
-            <ListItem button key="Nicaragua">
+            <ListItem button key="Nicaragua" role="listitem">
               <ListItemIcon>
                 <FlagRoundedIcon />
               </ListItemIcon>
@@ -175,7 +175,7 @@ export function WorldDataLayout() {
             </ListItem>
           </Link>
           <Link href="/vacunacion-nicaragua">
-            <ListItem button key="Nicaragua">
+            <ListItem button key="Nicaragua" role="listitem">
               <ListItemIcon>
                 <VaccinesRoundedIcon />
               </ListItemIcon>
