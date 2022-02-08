@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { NicaraguaDashboardLayout } from "../../components/Dashboard/NicaraguaDataLayout";
+import { Copyright } from "../../components/Footer/Footer";
 import styles from "../../styles/Home.module.css";
 
 export default function NicaraguaData() {
@@ -15,6 +16,9 @@ export default function NicaraguaData() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NicaraguaDashboardLayout />
+      <footer style={{ margin: "1rem 0 2rem 0" }}>
+        <Copyright />
+      </footer>
     </div>
   );
 }

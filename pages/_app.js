@@ -7,9 +7,15 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
-        page_path: url,
-      });
+      try {
+        if (window.gtag) {
+          window.gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+            page_path: url,
+          });
+        }
+      } catch (error) {
+        console.log("Error from the trackerPageView => ", error);
+      }
     };
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {

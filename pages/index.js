@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { WorldDataLayout } from "../components/Dashboard/WorldDataLayout";
+import { Copyright } from "../components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <WorldDataLayout />
+      <footer style={{ margin: "1rem 0 2rem 0" }}>
+        <Copyright />
+      </footer>
     </div>
   );
 }
