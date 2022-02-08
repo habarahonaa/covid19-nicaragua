@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este es un dashboard informativo sobre el COVID-19 creado con [Next.js](https://nextjs.org/) y [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Informacion sanitaria importante
 
-First, run the development server:
+> La informacion contenida en este aplicacion proviene de fuentes publicas reconocidas mas abajo. Recuerda que la autoridad sanitaria del pais tiene la informacion mas actualizada y fidedigna.
+
+[Recursos sobre COVID-19 para padres de familia y niños](https://www.paho.org/es/recursos-sobre-covid-19-para-padres-ninos). El objetivo de esta página es ofrecer recursos para los padres, cuidadores y niños sobre la COVID-19 y la importancia de adoptar medidas efectivas para protegerse y sobrellevar la cuarentena. Estos materiales han sido preparados por la OMS, socios de la OPS, colaboradores y autores.
+
+[Informes del departamento de Salud](http://www.minsa.gob.ni/index.php/repository/Descargas-MINSA/COVID-19/Datos-COVID-19/). Estos son los documentos oficiales publicados cada semana. Recuerda seguir las instrucciones y recomendaciones del ministerio de salud.
+
+## Reconocimiento
+
+[disease.sh API](https://disease.sh/) - toda la informacion utilizada en esta aplicacion proviene del API de disease.sh.
+
+## Desarrollo local
+
+Primero, clona el codigo fuente usando GIT CLI o descarga HTTPS e instala dependencias necesarias
+
+```bash
+npm install
+# o
+yarn install
+```
+
+Luego, inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver los resultados.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Puedes editar cada una de las paginas en el directorio `pages/`. Las paginas se auto-actualizan mientras haces cambios.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[Rutas API](https://nextjs.org/docs/api-routes/introduction) puedes acceder y editar en [http://localhost:3000/api/disease](http://localhost:3000/api/disease). Estas pueden ser editadas en `pages/api/disease.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+El directorio `pages/api` esta mapeado a `/api/*`. Los archivos en este directorio son tratados como [API routes](https://nextjs.org/docs/api-routes/introduction) en vez de como paginas React.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Despliegue en Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+La forma mas sencilla de desplegar la aplicacion en Internet es la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) de los creadores de Next.js.
